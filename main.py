@@ -36,7 +36,7 @@ try:
         vertexX = medianVertexCoords[0]
         vertexY = medianVertexCoords[1]
         ## calculate equation
-        m = (vertexY - midpointY) / (vertexX - midpointY) 
+        m = (vertexY - midpointY) / (vertexX - midpointX) 
         b = -1 * (m *midpointX) + midpointY
     elif mode == 'alt':
         altitudeVertexString = input('Vertex? ')
