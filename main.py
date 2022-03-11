@@ -25,7 +25,6 @@ try:
         elif medianVertexString == 'c':
             medianVertexCoords = cCoords
             medianBaseCoords = (bCoords, aCoords)
-        
         ## get two points from base line
         basePoint1 = medianBaseCoords[0]
         basePoint2 = medianBaseCoords[1]
@@ -78,21 +77,36 @@ try:
         midpoint =  (x2 + x1) /2 , (y2 + y1) / 2 
         m = -1 / mBase # resiprical -
         b = -1 * (m *midpoint[0]) + midpoint[1]
+    elif mode == 'dialate':
+        ax = aCoords[0]
+        ay = aCoords[1]
+        bx = bCoords[0]
+        by = bCoords[1]
+        cx = cCoords[0]
+        cy = cCoords[1]
+        dialationPoint = (float(input('dialation X:' )), float(input('dialation Y: ')))
+        k = float(input('enter scaleFactor: '))
+        dx = dialationPoint[0]
+        dy = dialationPoint[1]
 
-
+        axp = (k * (ax - dx)) + dx 
+        ayp = (k * (ay - dy)) + dy
+        bxp = (k * (bx - dx)) + dx ### key: first letter is the point, second is x or y and p if it is prime(second triangle)
+        byp = (k * (by - dy)) + dy
+        cxp = (k * (cx - dx)) + dx
+        cyp = (k * (cy - dy)) + dy
+        apCoords = (axp,ayp)
+        bpCoords = (bxp,byp)
+        cpCoords = (cxp,cyp)
+        drawTri(apCoords,bpCoords,cpCoords,interval)
     ##draw data to graph
-    drawLine(b,1,m,interval,graphSize)
+    if mode != 'dialate':
+        drawLine(b,1,m,interval,graphSize)
     writeLengths(0,0,5,5)
     if input("graph y/n ") == 'y':
         drawGraph(0,0,graphSize,graphSpaces,interval)
         drawGraph(0,graphSize,graphSize,graphSpaces,interval)
         drawGraph(-graphSize,0,graphSize,graphSpaces,interval)
         drawGraph(-graphSize,graphSize,graphSize,graphSpaces,interval)
-
-
-
-
-
-
 finally:
     input('press enter to exit: ')
