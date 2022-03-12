@@ -1,7 +1,7 @@
 # Zander Pierson 2022 Zqpie on github
 """
 Module used to make geometry and graphing programs 
-with turtle see instructions.txt for explintions 
+with turtle see instructions.txt for explanations 
 of variables and functions
 """
 import turtle as t
